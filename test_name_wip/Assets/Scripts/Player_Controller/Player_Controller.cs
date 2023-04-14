@@ -28,6 +28,8 @@ public class Player_Controller : MonoBehaviour
     void FixedUpdate()
     {
         rb2d.MovePosition(rb2d.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        Debug.Log("player pos=" + transform.position);
     }
 
 }
