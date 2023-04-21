@@ -4,23 +4,39 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-   
+    [Header("Player Stat Config")]
+    [SerializeField] private string charType = "archer"; 
     [SerializeField] private float moveSpeed = 5f;
+
+
+    [Header("Skills controller")]
+    public SkillsController skillController;
+
+
+
     [SerializeField] private Rigidbody2D rb2d = null;
 
     Vector2 movement;
 
     void Start()
     {
-        
+        //starts skill according to class
+        skillController.FireSkills(charType);
     }
 
    
     void Update()
     {
-        //new movement code to make movement smoother and save performance, for old code checkout github
+
+        //player movment
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        //player pause controller/menu controller
+
+        //weapon controller to edit skills
+        
+
     }
 
 
