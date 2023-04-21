@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public int bullet_speed = 1;
-    public Vector3 lookAtTargetPos;
+    [Header("Config of arrow")]
+    //speed of arrow
+    [SerializeField] public float bullet_speed = 1.0f;
 
-    // Start is called before the first frame update
+    //vector used to hold pos of mouse
+    private Vector3 lookAtTargetPos;
+
     void Start()
     {
+        //gets pos of mouse
         lookAtTargetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         lookAtTargetPos.z = 0;
     }
@@ -18,6 +22,10 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = lookAtTargetPos;
+        //transform.position = lookAtTargetPos;
+
+        //more info https://answers.unity.com/questions/56251/make-object-move-tofollow-another-object-plus-turn.html
+        transform.position += lookAtTargetPos * Time.deltaTime * bullet_speed;
+
     }
 }
