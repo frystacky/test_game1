@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Unity.Burst.CompilerServices;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class Arrow : MonoBehaviour
     [Header("Config of arrow")]
     //speed of arrow
     [SerializeField] public float missle_speed = 1f;
+    [SerializeField] public int missileDamage = 50;
+    [SerializeField] public int missilePen = 2;
 
     private Camera mainCam;
     private Rigidbody2D rb;
@@ -28,5 +31,21 @@ public class Arrow : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * missle_speed;
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject incomingObject = collision.gameObject;
+        Debug.Log("Object that collided with me: " + incomingObject.gameObject.name);
 
+        if (incomingObject.CompareTag("Enemy"))
+        {
+            incomingObject.GetComponent<EnemyStats>().takeDamage(missileDamage);
+            missilePen -= 1;
+
+            if (missilePen <= 0)
+            {
+                Destroy(this.gameObject);
+                Debug.Log("misslepen is " +missilePen);
+            }
+        }
+    }
 }
