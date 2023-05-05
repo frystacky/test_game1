@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2505523963731380955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.904, y: -0.06, z: 0}
+  m_LocalPosition: {x: -3.76, y: 0.12, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -128,8 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  movespeed: 0
+  movespeed: 1
   stats: {fileID: 0}
+  force: -1000
+  damageAmountToPlayer: 10
 --- !u!61 &8145009440660364581
 BoxCollider2D:
   m_ObjectHideFlags: 0

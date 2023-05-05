@@ -34,7 +34,6 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject incomingObject = collision.gameObject;
-        Debug.Log("Object that collided with me: " + incomingObject.gameObject.name);
 
         if (incomingObject.CompareTag("Enemy"))
         {
@@ -44,7 +43,6 @@ public class Arrow : MonoBehaviour
             if (missilePen <= 0)
             {
                 Destroy(this.gameObject);
-                Debug.Log("misslepen is " +missilePen);
             }
         }
     }

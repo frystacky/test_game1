@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStats : MonoBehaviour
+public class Player_Stats : MonoBehaviour
 {
-    private int hp = 0;
-    private float movespeed = 0f;
-    private int damageAmountToPlayer = 0;
+    [Header("Player Stats to be set by Player_Controller")]
+    [SerializeField] private int hp = 0;
+    [SerializeField] private float movespeed = 0f;
 
     public int gethp()
     {
@@ -26,16 +26,6 @@ public class EnemyStats : MonoBehaviour
     public void setMoveSpeed(float movespeed)
     {
         this.movespeed = movespeed;
-    }
-
-    public int getDamageAmountToPlayer()
-    {
-        return this.damageAmountToPlayer;
-    }
-
-    public void setDamageAmountToPlayer(int damageAmountToPlayer)
-    {
-        this.damageAmountToPlayer = damageAmountToPlayer;
     }
 
     public void takeDamage(int damage)

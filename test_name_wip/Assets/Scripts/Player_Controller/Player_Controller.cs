@@ -5,8 +5,10 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
     [Header("Player Stat Config")]
+    [SerializeField] private int hp = 100;
     [SerializeField] private string charType = "archer"; 
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] public Player_Stats stats;
 
 
     [Header("Skills controller")]
@@ -22,6 +24,11 @@ public class Player_Controller : MonoBehaviour
     {
         //starts skill according to class
         skillController.FireSkills(charType);
+
+        //get basic player stats
+        stats  = GetComponent<Player_Stats>();
+        stats.sethp(this.hp);
+        stats.setMoveSpeed(this.moveSpeed);
     }
 
    
